@@ -1,6 +1,9 @@
 # EHI-Cal
 
-This is the place where I save my research procedure.
+This is the place where I save my research source codes.
+They're not 100% precisely classified, but I'll improve with time.
+
+
 
 
 Please refer to https://doi.org/10.1016/j.envint.2019.105170
