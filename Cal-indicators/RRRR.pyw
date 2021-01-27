@@ -23,21 +23,21 @@ def gera_pathfbt(year):
         more = ",x,999,x,x,1,x,IDF_GeoTIFF"
         count = 0
         pathlist = os.listdir(clip)
-        for i in range(int(len(pathlist)/1000)):
+        for i in range(int(len(pathlist)/400)):                   #This time we change to 900, for the fragstats showed overflow error when running folder 5.
             clipf = open(clip_save + "/_" + str(i) + ".fbt", 'w+')
             for line in pathlist:
                 (filename, extension) = os.path.splitext(line)
                 if (extension == ".tif"):
                     clipf.write(clip + '/' + line + more + '\n')
                     count += 1
-                    if count/1000==1:
-                        pathlist = pathlist[1000:]
+                    if count/400==1:
+                        pathlist = pathlist[400:]
                         count = 0
                         break
 
 def run(path,j):
     FBTs = []
-    for i in range(200):
+    for i in range(500):
         if os.path.isfile(path + "/_" + str(i) + ".fbt") is True:
             FBTs.append("_" + str(i) + ".fbt")
         else:
@@ -64,6 +64,7 @@ def Frg(year):
             path = root + "/Folder " + str(i)
             paths.append(path)
     mpp = mp.Pool(processes=7)
+    mpp.daemon = True
     count = 0
     for path in paths:
         count += 1
