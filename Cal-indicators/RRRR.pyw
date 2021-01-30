@@ -3,16 +3,16 @@ import os
 import subprocess
 import multiprocessing as mp
 
-root = "C:/research/NEW(1)/2015"
+
 
 def gera_pathfbt(year):
     names = []
 
-    for i in range(4,9):
+    for i in range(9):
         name = str(0) + str(i + 1)
         names.append(name)
 
-    for i in range(9, 111):
+    for i in range(9, 110):
         name = str(i + 1)
         names.append(name)
 
@@ -23,24 +23,15 @@ def gera_pathfbt(year):
         more = ",x,999,x,x,1,x,IDF_GeoTIFF"
         count = 0
         pathlist = os.listdir(clip)
-<<<<<<< HEAD
         for i in range(int(len(pathlist)/400)):                   #This time we change to 900, for the fragstats showed overflow error when running folder 5.
-=======
-        for i in range(int(len(pathlist)/900)):                   #This time we change to 900, for the fragstats showed overflow error when running folder 5.
->>>>>>> 56ea9d058e3914c6775937878af2d4423bcc71b9
             clipf = open(clip_save + "/_" + str(i) + ".fbt", 'w+')
             for line in pathlist:
                 (filename, extension) = os.path.splitext(line)
                 if (extension == ".tif"):
                     clipf.write(clip + '/' + line + more + '\n')
                     count += 1
-<<<<<<< HEAD
                     if count/400==1:
                         pathlist = pathlist[400:]
-=======
-                    if count/900==1:
-                        pathlist = pathlist[900:]
->>>>>>> 56ea9d058e3914c6775937878af2d4423bcc71b9
                         count = 0
                         break
 
@@ -85,7 +76,7 @@ def Frg(year):
 
     
 if __name__ == '__main__':
-    years = [2002]
+    years = [2003]
     for year in years:
         print ("will be running "+str(year)+ "\n")
         gera_pathfbt(year)

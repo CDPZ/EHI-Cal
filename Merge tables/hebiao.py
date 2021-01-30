@@ -1,30 +1,39 @@
 # -*- coding: utf-8 -*-
 
+import os
 
 def hebing(year):
-    root = "C:/research/NEW/" + str(year)
+    root = "Q:/NEW(1)/" + str(year)
     paths = []
-    for i in range(125):  # 文件夹个数124
+    for i in range(111):  # 文件夹个数124
         if i == 0:
             continue
         elif i < 10:
-            path = root + "/Folder 0" + str(i) + "/fragout.land"
-            paths.append(path)
+            for j in range(400):
+                path = root + "/Folder 0" + str(i) + "/fragout"+ str(j) +".land"
+                if os.path.isfile(path):
+                    paths.append(path)
+                else:
+                    break
 
         else:
-            path = root + "/Folder " + str(i) + "/fragout.land"
-            paths.append(path)
+            for j in range(400):
+                path = root + "/Folder " + str(i) + "/fragout"+ str(j) +".land"
+                if os.path.isfile(path):
+                    paths.append(path)
+                else:
+                    break
 
 
     for land in paths:
         fr = open(land,'r').read()
-        with open('C:/research/NEW/CSV/' + str(year) + '.csv', 'a') as f:
+        with open('Q:/NEW(1)/CSV/' + str(year) + '.csv', 'a') as f:
             f.write(fr)
     print(u'合并完毕！')
 
 
 if __name__ == '__main__':
-    years = [2006,2007,2008,2014,2015]
+    years = [2002]
     for year in years:
         hebing(year)
 

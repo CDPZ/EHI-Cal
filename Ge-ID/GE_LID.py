@@ -6,7 +6,7 @@ Created on Mon Oct 26 23:56:32 2020
 """
 import pandas as pd
 
-path = 'C:/research/NEW/CSV/'
+path = 'Q:/NEW(1)/CSV/'
 
 
 def GE_ID(pa_csv):
@@ -32,7 +32,7 @@ def GE_ID(pa_csv):
     print("ok")
 
 if __name__ == '__main__':
-    years = [2003]
+    years = [2002]
     for year in years:
         pa_csv = path + str(year) + ".csv"
         GE_ID(pa_csv)
