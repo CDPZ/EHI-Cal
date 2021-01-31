@@ -17,7 +17,7 @@ def del_file(path_data):
 
 
 if __name__ == '__main__':
-    path_data = u"Q:\\NEW(1)"
+    path_data = u"Q:\\NEW(1)\\2003"
     del_file(path_data)
 
 

@@ -27,7 +27,7 @@ def GE_ID(pa_csv):
             continue
         else:
             df.iloc[i][0] = df.iloc[i][0][df.iloc[i][0].rfind("/") + 1:df.iloc[i][0].find(".")]
- 
+    df.drop_duplicates(subset=None,keep='first',inplace=True)
     df.to_csv(pa_csv, index=False)
     print("ok")
 

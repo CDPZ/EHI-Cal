@@ -30,8 +30,14 @@ def gera_pathfbt(year):
                 if (extension == ".tif"):
                     clipf.write(clip + '/' + line + more + '\n')
                     count += 1
-                    if count/400==1:
-                        pathlist = pathlist[400:]
+                    if count/2000==1:
+                        pathlist = pathlist[2000:]
+                        count = 0
+                        break
+                else:
+                    count += 1
+                    if count/2000==1:
+                        pathlist = pathlist[2000:]
                         count = 0
                         break
 
