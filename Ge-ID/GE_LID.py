@@ -6,7 +6,7 @@ Created on Mon Oct 26 23:56:32 2020
 """
 import pandas as pd
 
-path = 'Q:/NEW(1)/CSV/'
+path = 'F:/NEW(1)/CSV/'
 
 
 def GE_ID(pa_csv):
@@ -27,12 +27,12 @@ def GE_ID(pa_csv):
             continue
         else:
             df.iloc[i][0] = df.iloc[i][0][df.iloc[i][0].rfind("/") + 1:df.iloc[i][0].find(".")]
-    df.drop_duplicates(subset=None,keep='first',inplace=True)
+    #df.drop_duplicates(subset=None,keep='first',inplace=True)
     df.to_csv(pa_csv, index=False)
     print("ok")
 
 if __name__ == '__main__':
-    years = [2002]
+    years = [2003]
     for year in years:
         pa_csv = path + str(year) + ".csv"
         GE_ID(pa_csv)

@@ -5,12 +5,12 @@ from arcpy import env
 
 def shp2raster(year):
     # Set environment settings
-    env.workspace = "D:/desktop/intersected"
+    env.workspace = "F:/NEW(1)/Feature"
     indicators = ["IJI", "PAFRAC", "DIVISION", "CONTAG", "SHEI", "SHDI"]
     # Set local variables
-    inFeature = str(year) + ".shp"
+    inFeature = year + ".shp"
     for indicator in indicators:
-        outRaster = "D:/desktop/GRID/" + indicator + "/" + str(year) + ".tif"
+        outRaster = "F:/NEW(1)/GRID/" + indicator + "/" + year + ".tif"
         cellSize = 3000
         field = indicator
 
@@ -19,6 +19,6 @@ def shp2raster(year):
 
 
 if __name__ == '__main__':
-    years = [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015]
+    years = ["2002", "2002s"]
     for year in years:
         shp2raster(year)

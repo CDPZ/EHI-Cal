@@ -3,7 +3,7 @@
 import os
 
 def hebing(year):
-    root = "Q:/NEW(1)/" + str(year)
+    root = "F:/NEW(1)/" + str(year)
     paths = []
     for i in range(111):  # 文件夹个数124
         if i == 0:
@@ -27,13 +27,13 @@ def hebing(year):
 
     for land in paths:
         fr = open(land,'r').read()
-        with open('Q:/NEW(1)/CSV/' + str(year) + '.csv', 'a') as f:
+        with open('F:/NEW(1)/CSV/' + str(year) + '.csv', 'a') as f:
             f.write(fr)
     print(u'合并完毕！')
 
 
 if __name__ == '__main__':
-    years = [2002]
+    years = [2003]
     for year in years:
         hebing(year)
 
