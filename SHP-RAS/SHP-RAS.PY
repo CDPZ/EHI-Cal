@@ -19,6 +19,6 @@ def shp2raster(year):
 
 
 if __name__ == '__main__':
-    years = ["2002", "2002s"]
+    years = ["2003"]
     for year in years:
         shp2raster(year)
