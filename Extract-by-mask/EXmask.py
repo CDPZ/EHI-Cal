@@ -25,14 +25,14 @@ def gera_test_path():
 # 生成形如“E:/Cgrid_/Folder 01” ~ “E:/Cgrid_/Folder 124”的文件夹路径
 def gera_folder_path():
     paths = []
-    for i in [92,93,94,96,98,99,100,101,103,107,108,109,110]:  # 文件夹个数110
+    for i in range(119):  # 文件夹个数110
         if i == 0:
             continue
         elif i < 10:
-            path = "Q:/sub/Folder 0" + str(i)
+            path = "F:/sub/Folder 0" + str(i)
             paths.append(path)
         else:
-            path = "Q:/sub/Folder " + str(i)    #E:/Cgrid_/
+            path = "F:/sub/Folder " + str(i)    #E:/Cgrid_/
             paths.append(path)
     return paths
 
@@ -128,6 +128,7 @@ def single(path, year, flag):  # path 这个进程要跑的文件夹(124中的�
             if int(filename) < int(lastfilename):
                 continue
             else:
+
                 out = "C:\\research\\NEW(1)\\" + str(year) + "\\" + path[7:] + "\\" + filename  # 将shp的名称作为tif输出时的名称    str(year)******************* path[14:]
 
                 if flag.value == 0:
@@ -205,7 +206,7 @@ def testE(year):
 
 
 def RUNWHOLE():
-    years = [2015]
+    years = [2011,2012,2013,2014,2015]
     for year in years:
         begin_time = time.time()
         mutex = mp.Lock()
