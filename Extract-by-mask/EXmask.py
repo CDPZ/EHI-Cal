@@ -206,7 +206,7 @@ def testE(year):
 
 
 def RUNWHOLE():
-    years = [2011,2012,2013,2014,2015]
+    years = [2004]
     for year in years:
         begin_time = time.time()
         mutex = mp.Lock()

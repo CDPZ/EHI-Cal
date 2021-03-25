@@ -7,12 +7,14 @@ def walkFile(dup):
     IDs = []
     ID_dup = []
     print("start_2_rem")
-    for root, dirs, files in os.walk("F:\sub"):
+    for root, dirs, files in os.walk("D:/Users/Desktop/"):
         for f in files:
             # print(os.path.join(root, f))
+            
             (filename, extension) = os.path.splitext(f)
-            if filename in dup:
-                os.remove(f)
+            print root,dirs,f
+            if filename+"\n" in dup:
+                os.remove(root +"/"+ f)
 
 
 
@@ -23,5 +25,6 @@ if __name__ == '__main__':
             if id in dup:
                 continue
             else:
+
                 dup.append(id)
     walkFile(dup)

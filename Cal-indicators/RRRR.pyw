@@ -12,18 +12,18 @@ def gera_pathfbt(year):
         name = str(0) + str(i + 1)
         names.append(name)
 
-    for i in range(9, 110):
+    for i in range(9, 118):
         name = str(i + 1)
         names.append(name)
 
     for name in names:
-
         clip = "C:/research/NEW(1)/" + str(year) + "/Folder " + name
-        clip_save = "Q:/NEW(1)/" + str(year) + "/Folder " + name
+        clip_save = "F:/out/" + str(year) + "/Folder " + name
         more = ",x,999,x,x,1,x,IDF_GeoTIFF"
         count = 0
         pathlist = os.listdir(clip)
-        for i in range(int(len(pathlist)/400)):                   #This time we change to 900, for the fragstats showed overflow error when running folder 5.
+        i = 0
+        while(True):                   #This time we change to 900, for the fragstats showed overflow error when running folder 5.
             clipf = open(clip_save + "/_" + str(i) + ".fbt", 'w+')
             for line in pathlist:
                 (filename, extension) = os.path.splitext(line)
@@ -40,10 +40,19 @@ def gera_pathfbt(year):
                         pathlist = pathlist[2000:]
                         count = 0
                         break
+            i = i + 1
+            if len(pathlist) < 2000:
+                break
+        clipf = open(clip_save + "/_" + str(i) + ".fbt", 'w+')
+        for line in pathlist:
+            (filename, extension) = os.path.splitext(line)
+            if (extension == ".tif"):
+                clipf.write(clip + '/' + line + more + '\n')
+
 
 def run(path,j):
     FBTs = []
-    for i in range(500):
+    for i in range(100):
         if os.path.isfile(path + "/_" + str(i) + ".fbt") is True:
             FBTs.append("_" + str(i) + ".fbt")
         else:
@@ -51,15 +60,15 @@ def run(path,j):
     for fbt in FBTs:
         os.chdir(path)
         out = path +"/fragout" + fbt[1:-4]
-        fca = "C:/research/unnamed" + str(j) + ".fca"
+        fca = "F:/fras/unnamed" + str(j) + ".fca"
         task = subprocess.Popen('frg -m '+ fca +' -b '+ fbt + ' -o ' + "\"" + out + "\"", stdout = subprocess.PIPE, shell = True)
         print(task.stdout.read())
 
 
 def Frg(year):
-    root = "Q:/NEW(1)/"+str(year)
+    root = "F:/out/"+str(year)
     paths = []
-    for i in range(111):  # 文件夹个数124
+    for i in range(119):  # 文件夹个数124
         if i == 0:
             continue
         elif i < 10:
@@ -82,8 +91,10 @@ def Frg(year):
 
     
 if __name__ == '__main__':
-    years = [2003]
+    years = [2003,2004,2005,2011,2012,2013,2014,2015]
     for year in years:
         print ("will be running "+str(year)+ "\n")
         gera_pathfbt(year)
+
+        print ("gepa_succ")
         Frg(year)
