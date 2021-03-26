@@ -7,7 +7,8 @@ csvpath = "F:\\out\\CSV\\"
 count = 0
 percent = 0
 if __name__ == '__main__':
-    for year in [2004]:
+    for year in [2013]:
+        print year
         data = pd.read_csv(csvpath + str(year) + "fkj.csv")
         #data.sort_values("LID", inplace=True)
         cursor = arcpy.UpdateCursor(shppath + str(year) + ".shp","","","","id_fine_wh A")
@@ -17,6 +18,7 @@ if __name__ == '__main__':
             if int(row.IJI)|int(row.PAFRAC)|int(row.SHEI)|int(row.SHDI)|int(row.CONTAG)|int(row.DIVISION) != 0:
                 continue
             The_Line = data[data.LID == row.id_fine_wh]
+
 
             try:
                 The_Index = The_Line.iloc[-1].name
@@ -87,7 +89,10 @@ if __name__ == '__main__':
                 row.CONTAG = 0
             count += 1
 
-            cursor.updateRow(row)
+            try:
+                cursor.updateRow(row)
+            except:
+                print "update error! ",row.id_fine_wh," ",year
 
 
             

@@ -16,6 +16,6 @@ def shp2raster(year):
         # Execute FeatureToRaster
         arcpy.FeatureToRaster_conversion(inFeature, field, outRaster, cellSize)
 if __name__ == '__main__':
-    years = [2003]
+    years = [2011]
     for year in years:
         shp2raster(year)

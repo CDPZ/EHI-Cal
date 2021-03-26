@@ -91,7 +91,7 @@ def Frg(year):
 
     
 if __name__ == '__main__':
-    years = [2003,2004,2005,2011,2012,2013,2014,2015]
+    years = [2014,2015]
     for year in years:
         print ("will be running "+str(year)+ "\n")
         gera_pathfbt(year)
