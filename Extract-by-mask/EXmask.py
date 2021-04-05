@@ -25,7 +25,7 @@ def gera_test_path():
 # 生成形如“E:/Cgrid_/Folder 01” ~ “E:/Cgrid_/Folder 124”的文件夹路径
 def gera_folder_path():
     paths = []
-    for i in range(119):  # 文件夹个数110
+    for i in range(66,119):  # 文件夹个数110
         if i == 0:
             continue
         elif i < 10:
@@ -128,9 +128,9 @@ def single(path, year, flag):  # path 这个进程要跑的文件夹(124中的�
             if int(filename) < int(lastfilename):
                 continue
             else:
-
-                out = "C:\\research\\NEW(1)\\" + str(year) + "\\" + path[7:] + "\\" + filename  # 将shp的名称作为tif输出时的名称    str(year)******************* path[14:]
-
+                out = "D:\\research\\" + str(year) + "\\" + path[7:] + "\\" + filename  # 将shp的名称作为tif输出时的名称    str(year)******************* path[14:]
+                
+                
                 if flag.value == 0:
                     # print("OK")
                     try:
@@ -147,7 +147,7 @@ def single(path, year, flag):  # path 这个进程要跑的文件夹(124中的�
             if int(filename) < int(lastfilename):
                 continue
             else:
-                out = "C:\\research\\NEW(1)\\" + str(year) + "\\" + path[7:] + "\\" + filename + '_'  # 将shp的名称作为tif输出时的名称    str(year)******************* path[14:]
+                out = "D:\\research\\" + str(year) + "\\" + path[7:] + "\\" + filename + '_'  # 将shp的名称作为tif输出时的名称    str(year)******************* path[14:]
                 if flag.value == 0:
                     # print("OK")
                     try:
@@ -206,7 +206,7 @@ def testE(year):
 
 
 def RUNWHOLE():
-    years = [2004]
+    years = [2010]#2007-30
     for year in years:
         begin_time = time.time()
         mutex = mp.Lock()

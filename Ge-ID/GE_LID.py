@@ -14,7 +14,7 @@ def GE_ID(pa_csv,year):
 # =============================================================================
 #     df.iloc[5][0] = df.iloc[5][0][df.iloc[5][0].rfind("/") + 1:df.iloc[5][0].find(".")]
 # =============================================================================
-
+    print(year)
     count = 0
     temp = df.shape[0]
     for i in range(df.shape[0]):
@@ -33,7 +33,7 @@ def GE_ID(pa_csv,year):
     print("ok")
 
 if __name__ == '__main__':
-    years = [2013]
+    years = [2006]
     for year in years:
         pa_csv = path + str(year) + ".csv"
         GE_ID(pa_csv,year)

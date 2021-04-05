@@ -7,7 +7,7 @@ csvpath = "F:\\out\\CSV\\"
 count = 0
 percent = 0
 if __name__ == '__main__':
-    for year in [2013]:
+    for year in [2006]:
         print year
         data = pd.read_csv(csvpath + str(year) + "fkj.csv")
         #data.sort_values("LID", inplace=True)

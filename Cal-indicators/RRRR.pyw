@@ -17,7 +17,7 @@ def gera_pathfbt(year):
         names.append(name)
 
     for name in names:
-        clip = "C:/research/NEW(1)/" + str(year) + "/Folder " + name
+        clip = "D:/research/" + str(year) + "/Folder " + name
         clip_save = "F:/out/" + str(year) + "/Folder " + name
         more = ",x,999,x,x,1,x,IDF_GeoTIFF"
         count = 0
@@ -58,6 +58,7 @@ def run(path,j):
         else:
             break
     for fbt in FBTs:
+        print fbt
         os.chdir(path)
         out = path +"/fragout" + fbt[1:-4]
         fca = "F:/fras/unnamed" + str(j) + ".fca"
@@ -91,7 +92,7 @@ def Frg(year):
 
     
 if __name__ == '__main__':
-    years = [2014,2015]
+    years = [2010]
     for year in years:
         print ("will be running "+str(year)+ "\n")
         gera_pathfbt(year)

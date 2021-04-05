@@ -2,7 +2,7 @@
 import arcpy
 from arcpy import env
 def shp2raster(year):
-        
+    print year
     # Set environment settings
     env.workspace = "F:/out/Feature/"
     indicators = ["IJI", "PAFRAC", "DIVISION", "CONTAG", "SHEI", "SHDI"]
@@ -16,6 +16,6 @@ def shp2raster(year):
         # Execute FeatureToRaster
         arcpy.FeatureToRaster_conversion(inFeature, field, outRaster, cellSize)
 if __name__ == '__main__':
-    years = [2011]
+    years = [2014]
     for year in years:
         shp2raster(year)
