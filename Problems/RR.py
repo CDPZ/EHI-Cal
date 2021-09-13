@@ -8,16 +8,13 @@ import multiprocessing as mp
 def gera_pathfbt(year):
     names = []
 
-    for i in range(9):
-        name = str(0) + str(i + 1)
-        names.append(name)
 
-    for i in range(9, 118):
-        name = str(i + 1)
-        names.append(name)
+    names.append(str(107))
+
+    names.append(str(115))
 
     for name in names:
-        clip = "D:/research/" + str(year) + "/Folder " + name
+        clip = "C:/research/NEW(1)/" + str(year) + "/Folder " + name
         clip_save = "F:/out/" + str(year) + "/Folder " + name
         more = ",x,999,x,x,1,x,IDF_GeoTIFF"
         count = 0
@@ -58,7 +55,7 @@ def run(path,j):
         else:
             break
     for fbt in FBTs:
-        print(fbt)
+        print (fbt)
         os.chdir(path)
         out = path +"/fragout" + fbt[1:-4]
         fca = "F:/fras/unnamed" + str(j) + ".fca"
@@ -69,16 +66,10 @@ def run(path,j):
 def Frg(year):
     root = "F:/out/"+str(year)
     paths = []
-    for i in range(119):  # 文件夹个数124
-        if i == 0:
-            continue
-        elif i < 10:
-            path = root + "/Folder 0" + str(i)
-            paths.append(path)
+    for i in [107,115]:
+        path = root + "/Folder " + str(i)
+        paths.append(path)
 
-        else:
-            path = root + "/Folder " + str(i)
-            paths.append(path)
     mpp = mp.Pool(processes=7)
     mpp.daemon = True
     count = 0
@@ -92,7 +83,7 @@ def Frg(year):
 
     
 if __name__ == '__main__':
-    years = [2008]
+    years = [2002]
     for year in years:
         print ("will be running "+str(year)+ "\n")
         gera_pathfbt(year)

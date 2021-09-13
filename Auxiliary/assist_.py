@@ -16,8 +16,8 @@ def del_file(path_data):
 
 
 if __name__ == '__main__':
-    for year in [2011,2012,2015]:
-        path_data = u"C:/research/NEW(1)/"+str(year)
+    for year in [2009]:
+        path_data = u"F:/out/"+str(year)
         del_file(path_data)
 
 

@@ -33,7 +33,7 @@ def GE_ID(pa_csv,year):
     print("ok")
 
 if __name__ == '__main__':
-    years = [2006]
+    years = [2008]
     for year in years:
         pa_csv = path + str(year) + ".csv"
         GE_ID(pa_csv,year)

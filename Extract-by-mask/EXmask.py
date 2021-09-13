@@ -25,7 +25,7 @@ def gera_test_path():
 # 生成形如“E:/Cgrid_/Folder 01” ~ “E:/Cgrid_/Folder 124”的文件夹路径
 def gera_folder_path():
     paths = []
-    for i in range(66,119):  # 文件夹个数110
+    for i in range(119):  # 文件夹个数110
         if i == 0:
             continue
         elif i < 10:
@@ -206,7 +206,7 @@ def testE(year):
 
 
 def RUNWHOLE():
-    years = [2010]#2007-30
+    years = [2008]#2007-30
     for year in years:
         begin_time = time.time()
         mutex = mp.Lock()
